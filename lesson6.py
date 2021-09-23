@@ -61,7 +61,7 @@
 #
 # @hamburger
 # def cotlet(ingredients):
-#     #print(f"котлета из {ingredients}")
+#      print(f"котлета из {ingredients}")
 #     print("котлета из {}".format(ingredients))
 #     return
 #
