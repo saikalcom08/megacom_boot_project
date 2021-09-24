@@ -4,7 +4,7 @@
 #Получим, например, следующее сообщение: «Переданы аргументы: var1 = 2, var3 = 10».
 
 def three_args(var1, var2, var3):
-    if var1 and var2 and var3:
+    if (var1 and var2 and var3) and (0 in (var1, var2, var3)):
         print('var1 = {}, var2 = {}, var3 = {}'.format(var1, var2, var3))
     else:
         print("You attempted an empty entrance")
