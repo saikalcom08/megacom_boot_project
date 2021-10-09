@@ -3,5 +3,6 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/megacom_boot_project" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/self_learning/projetc1_bot/python-telegram-bot" vcs="Git" />
   </component>
 </project>

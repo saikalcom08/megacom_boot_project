@@ -1,0 +1,31 @@
+--------------------
+Date: 3:10:2021
+Time: 10:54
+Phone number: +996706294910
+Message: i love coding
+--------------------
+Date: 3:10:2021
+Time: 15:56
+Phone number: +996706294910
+Message: i love coding
+--------------------
+Date: 3:10:2021
+Time: 16:10
+Phone number: +996706294910
+Message: i love coding
+--------------------
+Date: 3:10:2021
+Time: 11:10
+Phone number: +996706294910
+Message: i love coding
+--------------------
+Date: 3:10:2021
+Time: 11:20
+Phone number: +996705601609
+Message: i love coding
+--------------------
+Date: 3:10:2021
+Time: 11:32
+Phone number: +971503789778
+Message: just testing whatsapp message via Python
+--------------------
