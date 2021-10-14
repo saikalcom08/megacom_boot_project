@@ -13,10 +13,10 @@ class Student:
     def setNameAge(self, name, age):
         self.name = name
         self.age = age
-        return name, age
+        return self.name, self.age
     def setGroupNumber(self, groupNumber):
         self.groupNumber = groupNumber
-        return groupNumber
+        return self.groupNumber
 
 student1 = Student("Saikal", "1D", 31)
 student2 = Student("Eldar", "2D", 22)
