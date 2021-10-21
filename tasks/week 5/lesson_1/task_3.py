@@ -8,16 +8,19 @@ class Car:
         print("Автомобиль заведен")
     def stop(self):
         print("Автомобиль заглушен")
-    def get_year(self):
+    def set_year(self, year):
+        self.year = year
         return self.year
-    def get_type(self):
+    def set_type(self, type):
+        self.type = type
         return self.type
-    def get_color(self):
+    def set_color(self, color):
+        self.color = color
         return self.color
 
 car1 = Car("yellow", "Mers", 2000)
 car1.start()
 car1.stop()
-print(car1.get_year())
-print(car1.get_type())
-print(car1.get_color())
+print(car1.set_year(1998))
+print(car1.set_type("Jeep"))
+print(car1.set_color("black"))
