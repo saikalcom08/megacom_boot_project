@@ -1,0 +1,23 @@
+text = "Hello World"
+print(text.capitalize())
+print(text.casefold())
+print(text.center(20, "*"))
+print(text.count("World"))
+print(text.encode())
+print(text.endswith("ld"))
+text = "Hello W\to\tr\tl\td"
+#print(text.expandtabs(2))
+print(text.find("ello"))
+#text = "For only {price:.2f} dollars!"
+print(text.format(price=49))
+print(text.index("e"))
+print(text.isalnum())
+print(text.isalpha())
+print(text.isdecimal())
+print(text.isdigit())
+print(text.islower())
+print(text.isnumeric())
+print(text.isprintable())
+print(text.isspace())
+#print(text.ljust(20))
+print(text.lstrip(10))
