@@ -13,21 +13,20 @@ class Car:
     def __init__(self, name = "Jeep", color = "black", price = 45000):
         self.name = name
         self.color = color
-        self._price = None
+        self._price = price
 
     def input_from_console(self):
         self.name = input("Enter car name: ")
         self.color = input("Enter color of the car: ")
-        self._price = input(("Enter price of the car: "))
+        self._price = int(input("Enter price of the car: "))
         return self.name, self.color, self._price
 
     def print_from_console(self):
         print(f"Your car name: {self.name}, your car color: {self.color}, car price: {self._price}")
 
     def change_price(self, percentage):
-        if self._price == None:
-            self._price = self._price * (100 - percentage) * 100
-        return self._price
+        price = self._price * (100 - percentage) * 100
+        return price
 
 car1 = Car() # BMW, black, 78000
 car2 = Car() # Lamborghini, white, 100000
