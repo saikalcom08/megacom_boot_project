@@ -9,24 +9,25 @@
 # Ввести новый цвет и покрасить авто с цветом white в указанный цвет
 
 class Car:
-    companyName = "Saikal and Co"
+    COMPANY_NAME = "Saikal and Co"
     def __init__(self, name = "Jeep", color = "black", price = 45000):
         self.name = name
         self.color = color
-        self._price = price
+        self.__price = price
 
     def input_from_console(self):
         self.name = input("Enter car name: ")
         self.color = input("Enter color of the car: ")
-        self._price = int(input("Enter price of the car: "))
-        return self.name, self.color, self._price
+        self.__price = int(input("Enter price of the car: "))
+        return self.name, self.color, self.__price
 
     def print_from_console(self):
-        print(f"Your car name: {self.name}, your car color: {self.color}, car price: {self._price}")
+        print(f"Your car name: {self.name}, your car color: {self.color}, car price: {self.__price}")
 
     def change_price(self, percentage):
-        price = self._price * (100 - percentage) * 100
-        return price
+        res = (percentage * self.__price) / 100
+        self.__price -= res
+        return self.__price
 
 car1 = Car() # BMW, black, 78000
 car2 = Car() # Lamborghini, white, 100000

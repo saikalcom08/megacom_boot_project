@@ -20,7 +20,7 @@ class Good(Money):
         self.money = self.money * (100-percentage)/100
         return self.money
 
-pen = Good("Pen", 25.5)
+pen = Good("Pen", 25.6)
 print(f"tsena tovara do skidki: {pen.get_money()}")
 pen.discount(15)
 print(f"vash tovar posle skidki: {pen.get_money()}")
