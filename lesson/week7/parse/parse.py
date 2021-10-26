@@ -1,6 +1,7 @@
 import requests
 from decouple import config
 from bs4 import BeautifulSoup
+import csv
 
 URL = "https://www.kivano.kg/planshety-i-bukridery"
 HEADER = {
@@ -8,6 +9,8 @@ HEADER = {
     "access": "*/*"
 }
 LINK = "https://www.kivano.kg"
+PATH = "planshet.csv"
+
 def get_html(url, params = None):
     request = requests.get(url, headers=HEADER, params=params)
     return request
@@ -15,20 +18,35 @@ def get_html(url, params = None):
 def get_content(html):
     soup = BeautifulSoup(html, "html.parser")
     items = soup.find_all("div", class_="item product_listbox oh")
-    book = []
+    books = []
+    count = 1
     for item in items:
-        book.append(
+        x = item.find("div", class_="listbox_title oh").get_text().replace("\n", "")
+        books.append(
             {"title": item.find("div", class_="listbox_title oh").get_text().replace("\n", ""),
              "image": LINK + item.find("img").get("src"),
-             "description": item.find("div", {'class': 'listbox_title oh'}).get_text(),
-             "price": item.find("div", class_="listbox_price text-center").get_text().replace("\n", "")
+             "description": item.find("div", class_='product_text pull-left').get_text().replace(f"{x}", ""),
+             "price": item.find("div", class_="listbox_price text-center").get_text().replace("\n", ""),
+             "detail_product": LINK + item.find("a").get("href"),
+             "item": count
              }
         )
-    print(book)
+        count += 1
+    return books
+
+def save_csv(books, path):
+    with open(path, "w") as f:
+        writer = csv.writer(f, delimiter=";")
+        writer.writerow(["Номер", "Название планшета", "Цена", "Описание", "Картинка", "Ссылка на детализацию"])
+        for book in books:
+            writer.writerow([book["item"], book["title"], book["price"], book["description"],
+                             book["image"], book["detail_product"]
+            ])
 
 def parse():
     html = get_html(URL)
     if html.status_code == 200:
-        get_content(html.text)
+        electron_books = get_content(html.text)
+        save_csv(electron_books, PATH)
 
 parse()
