@@ -22,13 +22,15 @@ def get_content(html):
     count = 1
     for item in items:
         x = item.find("div", class_="listbox_title oh").get_text().replace("\n", "")
+        y = item.find("div", class_="listbox_price text-center").findChild("strong").get_text().replace("\n", "").replace(" сом", "")
         books.append(
             {"title": item.find("div", class_="listbox_title oh").get_text().replace("\n", ""),
              "image": LINK + item.find("img").get("src"),
              "description": item.find("div", class_='product_text pull-left').get_text().replace(f"{x}", ""),
-             "price": item.find("div", class_="listbox_price text-center").get_text().replace("\n", ""),
+             "price": y + " (som)",
              "detail_product": LINK + item.find("a").get("href"),
-             "item": count
+             "item": count,
+             "converted_price": str(round((int(y) / 85), 1)) + " (usd)"
              }
         )
         count += 1
@@ -37,10 +39,10 @@ def get_content(html):
 def save_csv(books, path):
     with open(path, "w") as f:
         writer = csv.writer(f, delimiter=";")
-        writer.writerow(["Номер", "Название планшета", "Цена", "Описание", "Картинка", "Ссылка на детализацию"])
+        writer.writerow(["Номер", "Название планшета", "Цена в сомах", "Цена в долларах", "Описание", "Картинка", "Ссылка на детализацию"])
         for book in books:
-            writer.writerow([book["item"], book["title"], book["price"], book["description"],
-                             book["image"], book["detail_product"]
+            writer.writerow([book["item"], book["title"], book["price"], book["converted_price"],
+                             book["description"], book["image"], book["detail_product"]
             ])
 
 def parse():
