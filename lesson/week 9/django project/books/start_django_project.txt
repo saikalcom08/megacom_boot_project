@@ -1,0 +1,6 @@
+ - make environment
+ - open env
+ - install django and other dependencies
+ - django-admin startproject book .
+ - python manage.py startapp book_app
+ - pip freeze>requirements.txt
